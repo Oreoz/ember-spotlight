@@ -1,0 +1,12 @@
+{{input id="spotlight-search" type="text" placeholder=placeholder value=input key-up=(action "keyUp")}}
+
+{{#if filteredOptions}}
+  <div id="spotlight-results-wrapper">
+    {{#each filteredOptions as |option|}}
+      {{! template-lint-disable no-invalid-interactive }}
+      <div class="spotlight-result" {{action "click" option}}>
+        {{yield option}}
+      </div>
+    {{/each}}
+  </div>
+{{/if}}
